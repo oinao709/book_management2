@@ -1,0 +1,46 @@
+@startuml
+
+package 申請書pkg {
+    class 本の登録申請書 {
+        - ジャンル
+        - タイトル
+        - 作者
+        - 内容
+        - 巻数
+        + 本情報 申請書作成()
+    }
+}
+
+package 登録pkg {
+    interface 本の登録 {
+        + 本ID 本IDを払い出す()
+        + 登録結果 本を登録する(本Entity)
+    }
+    enum 登録結果 {
+        OK
+    }
+
+    本の登録 --> 登録結果
+}
+
+package 本情報pkg {
+    class 本Entity {
+        - 本ID
+        - 本情報
+    }
+
+    class 本ID
+    本情報 --> ジャンル
+    本情報 --> タイトル
+    本情報 --> 作者
+    本情報 --> 内容
+    本情報 --> 巻数
+
+    本Entity --> 本ID
+    本Entity --> 本情報
+}
+
+本の登録申請書 --> 本情報
+本の登録 --> 本ID
+本の登録 --> 本Entity
+@enduml
