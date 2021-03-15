@@ -3,8 +3,17 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.book_management.datasource.BookMapper">
+    <update id="issue">
+        UPDATE BOOK_MANAGEMENT_SEQUENCE SET ID = (ID + 1)
+    </update>
+
+    <select id="find" resultType="int">
+        SELECT ID FROM BOOK_MANAGEMENT_SEQUENCE
+    </select>
+
     <insert id="insert">
         INSERT INTO BOOK_MANAGEMENT (
+            BOOK_ID,
             GENRE,
             TITLE,
             AUTHOR,
@@ -12,11 +21,12 @@
             VOLUME,
             CREATE_DATE
         ) VALUES (
-            #{book.genre.value},
-            #{book.title.value},
-            #{book.author.value},
-            #{book.contents.value},
-            #{book.volume.value},
+            #{book.bookId.value},
+            #{book.bookApplication.genre.value},
+            #{book.bookApplication.title.value},
+            #{book.bookApplication.author.value},
+            #{book.bookApplication.contents.value},
+            #{book.bookApplication.volume.value},
             SYSDATE
         )
     </insert>
