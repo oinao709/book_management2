@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.book_management.datasource.BookMapper">
+    <insert id="insert">
+        INSERT INTO BOOK_MANAGEMENT (
+            GENRE,
+            TITLE,
+            AUTHOR,
+            CONTENTS,
+            VOLUME,
+            CREATE_DATE
+        ) VALUES (
+            #{book.genre.value},
+            #{book.title.value},
+            #{book.author.value},
+            #{book.contents.value},
+            #{book.volume.value},
+            SYSDATE
+        )
+    </insert>
+</mapper>

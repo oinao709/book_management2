@@ -9,23 +9,32 @@
 </head>
 <body>
 <h1>BOOK登録画面</h1>
-<!--<a th:href="@{/three-choice-quiz/register}" class="btn btn-info">クイズ登録画面</a>-->
 
 <form method="post" action="/book/register" th:action="@{/book/register}" th:object="${bookRegisterRequest}">
     <table class="table table-bordered">
         <tr>
-            <td><label>本のタイトル</label></td>
-            <td>
-                <input th:type="text" th:name="bookTitle" th:required="required" />
-            </td>
+            <td><label>ジャンル</label></td>
+            <td><input th:type="text" th:name="genre" th:required="required" /></td>
+        </tr>
+        <tr>
+            <td><label>タイトル</label></td>
+            <td><input th:type="text" th:name="title" th:required="required" /></td>
+        </tr>
+        <tr>
+            <td><label>作者</label></td>
+            <td><input th:type="text" th:name="author" th:required="required" /></td>
+        </tr>
+        <tr>
+            <td><label>内容</label></td>
+            <td><input th:type="text" th:name="contents" th:required="required" /></td>
+        </tr>
+        <tr>
+            <td><label>巻数</label></td>
+            <td><input th:type="text" th:name="volume" th:required="required" /></td>
         </tr>
     </table>
 
     <input type="submit" th:value="登録" class="btn btn-info"/>
 </form>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
-        th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
-        th:src="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
 </body>
 </html>

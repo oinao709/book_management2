@@ -14,18 +14,10 @@ class BookRegisterApi {
 
     @RequestMapping(value = ["/book/register"])
     fun register(@ModelAttribute bookRegisterRequest: BookRegisterRequest): String {
-        val aa = service.get(bookRegisterRequest.create())
+        val aa = service.apply(bookRegisterRequest.create())
 
         val res: MutableMap<String, String> = HashMap()
         res["response"] = aa + "の登録が完了しました。"
         return "book/register"
     }
-
-//    fun register(@ModelAttribute bookRegisterRequest: BookRegisterRequest): String {
-//        val aa = service.get(bookRegisterRequest.create())
-//        println(aa)
-//        val res: MutableMap<String, String> = HashMap()
-//        res["response"] = aa + "の登録が完了しました。"
-//        return "book/register"
-//    }
 }
