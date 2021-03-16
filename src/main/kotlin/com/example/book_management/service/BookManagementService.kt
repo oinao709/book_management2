@@ -1,8 +1,7 @@
 package com.example.book_management.service
 
-import com.example.book_management.datasource.BookMapper
+import com.example.book_management.datasource.BookRepository
 import com.example.book_management.domain.bookInfomation.BookEntity
-import com.example.book_management.domain.bookInfomation.BookId
 import com.example.book_management.domain.book_application.BookApplication
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -10,13 +9,12 @@ import org.springframework.stereotype.Service
 @Service
 class BookManagementService {
     @Autowired
-    private lateinit var bookMapper: BookMapper
+    private lateinit var bookRepository: BookRepository
 
     fun apply(bookApplication: BookApplication): String {
-        bookMapper.issue()
-        bookMapper.insert(
+        bookRepository.save(
             BookEntity(
-                BookId.create(bookMapper.find()),
+                bookRepository.getBookId(),
                 bookApplication
             )
         )

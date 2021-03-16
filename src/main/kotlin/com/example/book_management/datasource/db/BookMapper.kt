@@ -1,4 +1,4 @@
-package com.example.book_management.datasource
+package com.example.book_management.datasource.db
 
 import com.example.book_management.domain.bookInfomation.BookEntity
 import org.apache.ibatis.annotations.Mapper

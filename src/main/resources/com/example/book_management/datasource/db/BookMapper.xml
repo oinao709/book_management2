@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.book_management.datasource.BookMapper">
+<mapper namespace="com.example.book_management.datasource.db.BookMapper">
     <update id="issue">
         UPDATE BOOK_MANAGEMENT_SEQUENCE SET ID = (ID + 1)
     </update>
