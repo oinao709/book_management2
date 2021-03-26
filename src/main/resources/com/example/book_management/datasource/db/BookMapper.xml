@@ -3,12 +3,8 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.book_management.datasource.db.BookMapper">
-    <update id="issue">
-        UPDATE BOOK_MANAGEMENT_SEQUENCE SET ID = (ID + 1)
-    </update>
-
-    <select id="find" resultType="int">
-        SELECT ID FROM BOOK_MANAGEMENT_SEQUENCE
+    <select id="issue" resultType="int">
+        SELECT BOOK_MANAGEMENT_SEQUENCE.NEXTVAL FROM DUAL
     </select>
 
     <insert id="insert">
@@ -30,4 +26,19 @@
             SYSDATE
         )
     </insert>
+
+    <select id="find" resultMap="referMap">
+        SELECT
+            book_id
+        FROM
+            BOOK_MANAGEMENT
+        WHERE
+            BOOK_ID = #{bookId.value}
+    </select>
+
+    <resultMap id="referMap" type="com.example.book_management.datasource.BookIntermediate">
+        <constructor>
+            <arg column="book_id" javaType="String" jdbcType="VARCHAR" />
+        </constructor>
+    </resultMap>
 </mapper>

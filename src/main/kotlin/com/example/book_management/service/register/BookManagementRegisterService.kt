@@ -1,4 +1,4 @@
-package com.example.book_management.service
+package com.example.book_management.service.register
 
 import com.example.book_management.datasource.BookRepository
 import com.example.book_management.domain.bookInfomation.BookEntity
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class BookManagementService {
+class BookManagementRegisterService {
     @Autowired
     private lateinit var bookRepository: BookRepository
 

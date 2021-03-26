@@ -1,4 +1,4 @@
-package com.example.book_management.api
+package com.example.book_management.api.register
 
 import com.example.book_management.domain.bookInfomation.Author
 import com.example.book_management.domain.bookInfomation.Contents

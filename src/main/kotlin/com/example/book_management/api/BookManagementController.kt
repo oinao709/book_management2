@@ -1,5 +1,6 @@
 package com.example.book_management.api
 
+import com.example.book_management.api.register.BookRegisterRequest
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController

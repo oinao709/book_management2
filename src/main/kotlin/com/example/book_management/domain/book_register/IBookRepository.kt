@@ -6,4 +6,5 @@ import com.example.book_management.domain.bookInfomation.BookId
 interface IBookRepository {
     fun getBookId() : BookId
     fun save(bookEntity: BookEntity)
+    fun findBy(bookId: BookId) : BookEntity
 }

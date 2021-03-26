@@ -13,11 +13,14 @@ class BookRepository : IBookRepository {
     private lateinit var bookMapper: BookMapper
 
     override fun getBookId(): BookId {
-        bookMapper.issue()
-        return BookId.create(bookMapper.find())
+        return BookId.create(bookMapper.issue())
     }
 
     override fun save(bookEntity: BookEntity) {
         bookMapper.insert(bookEntity)
+    }
+
+    override fun findBy(bookId: BookId): BookEntity {
+        return bookMapper.find(bookId).create()
     }
 }

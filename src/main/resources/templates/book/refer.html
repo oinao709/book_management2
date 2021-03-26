@@ -1,17 +1,19 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>登録結果</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta charset="UTF-8"/>
+    <title>本参照画面</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
           th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}" rel="stylesheet"/>
 </head>
-<body id="resultPage">
-<p>登録完了</p>
-<div th:text="${res['response']}">
-<a th:href="@{/index}" class="btn btn-info">TOP画面へ戻る</a>
-
+<body>
+<h1>本参照画面</h1>
+    参照結果<div th:text="${res['response']}"></div>
+    <table class="table table-bordered">
+        <tr>
+            <td><label>本ID</label></td>
+            <th th:text="${res['book_id']}"></th>
+        </tr>
+    </table>
 </body>
 </html>
