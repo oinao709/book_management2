@@ -1,0 +1,29 @@
+@startuml
+
+package 参照pkg {
+    interface 本の一覧参照 {
+        + 本EntityList 本一覧を取得する()
+    }
+}
+
+package 本情報pkg {
+    class 本EntityList
+    class 本Entity {
+        - 本ID
+        - 本情報
+    }
+
+    class 本ID
+    本情報 --> ジャンル
+    本情報 --> タイトル
+    本情報 --> 作者
+    本情報 --> 内容
+    本情報 --> 巻数
+
+    本Entity --> 本ID
+    本Entity --> 本情報
+}
+
+本の一覧参照 --> 本EntityList
+本EntityList "1" --> "n" 本Entity
+@enduml
