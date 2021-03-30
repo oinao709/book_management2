@@ -7,4 +7,5 @@ interface IBookRepository {
     fun getBookId() : BookId
     fun save(bookEntity: BookEntity)
     fun findBy(bookId: BookId) : BookEntity
+    fun findAll(): List<BookEntity>
 }

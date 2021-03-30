@@ -11,4 +11,5 @@ interface BookMapper {
     fun issue(): Int
     fun insert(@Param("book") bookEntity: BookEntity)
     fun find(@Param("bookId") bookId : BookId) : BookIntermediate
+    fun findAll() : List<BookIntermediate>
 }

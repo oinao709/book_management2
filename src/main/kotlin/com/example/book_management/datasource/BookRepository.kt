@@ -6,6 +6,7 @@ import com.example.book_management.domain.bookInfomation.BookId
 import com.example.book_management.domain.book_register.IBookRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Repository
+import java.util.stream.Collectors
 
 @Repository
 class BookRepository : IBookRepository {
@@ -22,5 +23,9 @@ class BookRepository : IBookRepository {
 
     override fun findBy(bookId: BookId): BookEntity {
         return bookMapper.find(bookId).create()
+    }
+
+    override fun findAll(): List<BookEntity> {
+        return bookMapper.findAll().stream().map { x -> x.create() }.collect(Collectors.toList())
     }
 }

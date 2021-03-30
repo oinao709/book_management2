@@ -36,9 +36,24 @@
             BOOK_ID = #{bookId.value}
     </select>
 
+    <select id="findAll" resultMap="referMap">
+        SELECT
+            book_id,
+            genre,
+            title,
+            author,
+            contents
+        FROM
+            BOOK_MANAGEMENT
+    </select>
+
     <resultMap id="referMap" type="com.example.book_management.datasource.BookIntermediate">
         <constructor>
             <arg column="book_id" javaType="String" jdbcType="VARCHAR" />
+            <arg column="genre" javaType="String" jdbcType="VARCHAR" />
+            <arg column="title" javaType="String" jdbcType="VARCHAR" />
+            <arg column="author" javaType="String" jdbcType="VARCHAR" />
+            <arg column="contents" javaType="String" jdbcType="VARCHAR" />
         </constructor>
     </resultMap>
 </mapper>

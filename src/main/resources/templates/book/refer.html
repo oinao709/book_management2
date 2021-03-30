@@ -3,17 +3,45 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>本参照画面</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
 </head>
 <body>
 <h1>本参照画面</h1>
-    参照結果<div th:text="${res['response']}"></div>
-    <table class="table table-bordered">
-        <tr>
-            <td><label>本ID</label></td>
-            <th th:text="${res['book_id']}"></th>
-        </tr>
-    </table>
+参照結果
+<div th:text="${res['response']}"></div>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>本ID</th>
+        <th>ジャンル</th>
+        <th>タイトル</th>
+        <th>作者</th>
+        <th>作者</th>
+        <th>内容</th>
+        <th>巻数</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="bookEntity:${bookEntitys}" th:object="${bookEntity}">
+        <td th:text="*{bookId.getValue()}"></td>
+        <td th:text="*{bookApplication.getGenre().getValue()}"></td>
+        <td th:text="*{bookApplication.getTitle().getValue()}"></td>
+        <td th:text="*{bookApplication.getAuthor().getValue()}"></td>
+        <td th:text="*{bookApplication.getContents().getValue()}"></td>
+        <td th:text="*{bookApplication.getVolume().getValue()}"></td>
+    </tr>
+    </tbody>
+</table>
+<table class="table table-bordered">
+    <br>
+    <br>
+    <tfoot>
+    <tr>
+        <button type="button" onclick="location.href='/'">BOOK登録画面へ</button>
+    </tr>
+    </tfoot>
+</table>
 </body>
 </html>
